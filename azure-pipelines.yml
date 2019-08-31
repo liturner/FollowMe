@@ -2,7 +2,7 @@ variables:
   majorVersion: 1
   minorVersion: 13
   
-name: 'FollowMe_$(majorVersion).$(minorVersion).$(Build.BuildId)'
+name: 'FollowMe_$(majorVersion).$(minorVersion).$(rev:r)'
 
 trigger:
 - master
@@ -16,10 +16,10 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: |
-      **
       !.gitignore
       !**\.git\**
       !FollowMe.toc
+      **
     TargetFolder: '$(Build.BinariesDirectory)/FollowMe'
     CleanTargetFolder: true
     OverWrite: true
