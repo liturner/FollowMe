@@ -16,11 +16,11 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: |
+      **
       !.gitignore
       !.git/**
       !FollowMe.toc
       !azure-pipelines.yml
-      **
     TargetFolder: '$(Build.BinariesDirectory)/FollowMe'
     CleanTargetFolder: true
     OverWrite: true
