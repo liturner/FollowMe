@@ -35,8 +35,6 @@ steps:
       $filecontent = Get-Content $file
       $filecontent -replace '(^## Version: .*\.).*',"## Version: $newVersion" | Set-Content $(Build.BinariesDirectory)/FollowMe/FollowMe.toc
 
-
-
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.BinariesDirectory)'
