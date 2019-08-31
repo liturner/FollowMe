@@ -6,7 +6,7 @@ FollowMe.i13n = {}
 
 FollowMe.StringTableDE = {}
 FollowMe.StringTableDE.Title = "Folge Mir!"
-FollowMe.StringTableDE.Description = "Sage Folge Mir! zu einem Freund, um  ihn dir in schwierigen Situationen oder ... folgen zu lassen "
+FollowMe.StringTableDE.Description = "Dieses Addon ermöglicht das '/followme' Kommando. Es wird verwendet, um einem anderen Charakter zu sagen, dass er dir folgen soll. Der Befehl eignet sich perfekt für den Fall, dass ein Mitglied deines Teams für einige Minuten im echten Leben weg muss. Solange das Teammitglied und du dieses Addon besitzen, kannst du die Wartezeit verhindern oder auch, dass du deinen Freund zurücklassen musst."
 FollowMe.StringTableDE.ControlsSubTitle = "Steuerung"
 FollowMe.StringTableDE.ControlsText = "Lorem Ipsy"
 
@@ -16,13 +16,37 @@ FollowMe.StringTableEN.Description = "This Addon implements the '/followme' comm
 FollowMe.StringTableEN.ControlsSubTitle = "Controls"
 FollowMe.StringTableEN.ControlsText = "Regardless of your clients interface language, any of the following commands can be used to instruct another 'Follow Me!' user to follow you:\n\n/followme [PLAYER_NAME]\n/folgemir [PLAYER_NAME]"
 
+
+
+
+
+
+
+
+
+
+-- nThe command of course only works within active groups, so you cannot just be terrorised by randomers!"
+
+
+
+-- Regardless of your clients interface language, any of the following commands can be used to instruct another 'Follow Me!' user to follow you:
+
+
+
+
+
+
+
+
+
+
+
 function FollowMe.OnLoad(self)
 	self:RegisterEvent('ADDON_LOADED')
 	self:RegisterEvent('CHAT_MSG_ADDON')
 	
 	localInUse = GetLocale()
-	
-	if localInUse == deDE then
+	if localInUse == "deDE" then
 		FollowMe.i13n = FollowMe.StringTableDE
 	else
 		FollowMe.i13n = FollowMe.StringTableEN
