@@ -6,6 +6,8 @@
 				FollowMe.OnLoad(self);
 				FollowMeTitle:SetText(FollowMe.i13n.Title)
 				FollowMeDescription:SetText(FollowMe.i13n.Description)
+				FollowMeControlsSubTitle:SetText(FollowMe.i13n.ControlsSubTitle)
+				FollowMeControlsText:SetText(FollowMe.i13n.ControlsText)
 			</OnLoad>
 			<OnEvent> FollowMe.OnEvent(self, event, ...); </OnEvent>
 		</Scripts>
@@ -33,6 +35,21 @@
 						<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-40"/>
 					</Anchors>
 					
+				</FontString>
+				
+				<!-- Controls SubTitle -->
+				<FontString name="FollowMeControlsSubTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="16" y="-120"/>
+					</Anchors>
+				</FontString>
+				
+				<!-- Controls Text -->
+				<FontString name="FollowMeControlsText" inherits="SystemFont_Small" wordwrap="true" justifyH="LEFT"	justifyV="TOP">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="16" y="-140"/>
+						<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-140"/>
+					</Anchors>
 				</FontString>
 								
 			</Layer>

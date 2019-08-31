@@ -1,8 +1,8 @@
 ## Interface: 11302
 ## Title: Follow Me!
 ## Title-deDE: Folge Mir!
-## Notes: Tell someone to follow you using /followme.
-## Notes-deDE: Sag jemand, sie soll dich folgen mit !
+## Notes: Tell someone to follow you using "/followme [PLAYER_NAME]".
+## Notes-deDE: Sag jemandem, dass er dir folgen soll, indem du "/folgemir [SPIELER_NAME]" benutzt!
 ## Author: Luke Turner
 ## Version: 1.0.0
 ## DefaultState: enabled
