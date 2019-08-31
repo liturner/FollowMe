@@ -1,0 +1,10 @@
+## Interface: 11302
+## Title: Follow Me!
+## Title-deDE: Folge Mir!
+## Notes: Tell someone to follow you using /followme.
+## Notes-deDE: Sag jemand, sie soll dich folgen mit !
+## Author: Luke Turner
+## Version: 1.0.0
+## DefaultState: enabled
+
+OptionsFrame.xml

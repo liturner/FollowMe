@@ -1,0 +1,41 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Script file="FollowMe.lua"/>
+	<Frame name="FollowMe">
+		<Scripts>
+			<OnLoad> 
+				FollowMe.OnLoad(self);
+				FollowMeTitle:SetText(FollowMe.i13n.Title)
+				FollowMeDescription:SetText(FollowMe.i13n.Description)
+			</OnLoad>
+			<OnEvent> FollowMe.OnEvent(self, event, ...); </OnEvent>
+		</Scripts>
+
+		<Layers>
+			<Layer level="OVERLAY">
+			
+				<!-- Title -->
+				<FontString name="FollowMeTitle" inherits="GameFontNormalLarge">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="16" y="-16"/>
+					</Anchors>
+				</FontString>
+				
+				<!-- About -->
+				<FontString 
+						name="FollowMeDescription"
+						inherits="SystemFont_Small"
+						justifyH="LEFT"
+						justifyV="TOP"
+						wordwrap="true">
+					<Size y="100"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="16" y="-40"/>
+						<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-40"/>
+					</Anchors>
+					
+				</FontString>
+								
+			</Layer>
+		</Layers>
+	</Frame>
+</Ui>
