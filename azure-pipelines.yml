@@ -19,6 +19,7 @@ steps:
       !.gitignore
       !**\.git\**
       !FollowMe.toc
+      !azure-pipelines.yml
       **
     TargetFolder: '$(Build.BinariesDirectory)/FollowMe'
     CleanTargetFolder: true
