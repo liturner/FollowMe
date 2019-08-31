@@ -1,7 +1,8 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+variables:
+  majorVersion: 1
+  minorVersion: 13
+  
+name: 'FollowMe_$(majorVersion).$(minorVersion).$(Build.BuildId)'
 
 trigger:
 - master
@@ -10,10 +11,22 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $file = '$(Build.SourcesDirectory)/FollowMe.toc'
+      $rawVersion = '$(Build.BuildNumber)'
+      $newVersion =$rawVersion.Remove(0,9)
+      $filecontent = Get-Content $file
+      $filecontent -replace '(^## Version: .*\.).*',"## Version: $newVersion" | Set-Content $(Build.BinariesDirectory)/FollowMe.toc
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.BinariesDirectory)'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
