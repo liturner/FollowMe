@@ -11,6 +11,19 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: |
+      **
+      !.gitignore
+      !**\.git\**
+      !FollowMe.toc
+    TargetFolder: '$(Build.BinariesDirectory)/FollowMe'
+    CleanTargetFolder: true
+    OverWrite: true
+
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
@@ -20,6 +33,8 @@ steps:
       $newVersion =$rawVersion.Remove(0,9)
       $filecontent = Get-Content $file
       $filecontent -replace '(^## Version: .*\.).*',"## Version: $newVersion" | Set-Content $(Build.BinariesDirectory)/FollowMe/FollowMe.toc
+
+
 
 - task: CopyFiles@2
   inputs:
