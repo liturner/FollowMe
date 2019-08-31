@@ -17,7 +17,7 @@ steps:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: |
       !.gitignore
-      !**\.git\**
+      !.git/**
       !FollowMe.toc
       !azure-pipelines.yml
       **
