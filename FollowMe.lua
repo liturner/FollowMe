@@ -13,12 +13,12 @@ FollowMe.StringTableDE.ControlsText = "Unabhängig von der Sprache, die du verwe
 FollowMe.StringTableDE.UnitPopup =  "Folge Mir"
 
 FollowMe.StringTableEN = {}
-FollowMe.StringTableDE.Command = "/followme"
+FollowMe.StringTableEN.Command = "/followme"
 FollowMe.StringTableEN.Title = "Follow Me!"
 FollowMe.StringTableEN.Description = "This Addon implements the '/followme' command. This command is used to tell a charachter they must follow you. Perfect for the case you realise that a team member is away for a few minutes because his IRL baby is crying... As long as the team member and you have this addon, you can prevent either waiting ten minutes, or leaving your friend behind.\n\nThe command of course only works within active groups, so you cannot just be terrorised by randomers!"
 FollowMe.StringTableEN.ControlsSubTitle = "Controls"
 FollowMe.StringTableEN.ControlsText = "Regardless of your clients interface language, any of the following commands can be used to instruct another 'Follow Me!' user to follow you:\n\n/followme [PLAYER_NAME]\n/folgemir [PLAYER_NAME]"
-FollowMe.StringTableDE.UnitPopup =  "Follow Me"
+FollowMe.StringTableEN.UnitPopup =  "Follow Me"
 
 function FollowMe.OnLoad(self)
 	self:RegisterEvent('ADDON_LOADED')
@@ -78,9 +78,9 @@ function FollowMe.OnAddonLoaded(self, name, ...)
 			local dropdownMenu = _G["UIDROPDOWNMENU_INIT_MENU"]
 			
 			-- Only charachters in group can utilise this addon, so dont hook the option otherwise
-			if not IsInGroup(dropdownMenu.name) then
-				return
-			end
+			--- if not IsInGroup(dropdownMenu.name) then
+				---return
+			---end
 
 			local info = UIDropDownMenu_CreateInfo()
 			info.text = FollowMe.i13n.UnitPopup
