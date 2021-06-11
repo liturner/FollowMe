@@ -1,4 +1,4 @@
-## Interface: 11305
+## Interface: 20501
 ## Title: Follow Me!
 ## Title-deDE: Folge Mir!
 ## Notes: Tell someone to follow you using "/followme [PLAYER_NAME]".
