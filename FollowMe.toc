@@ -7,4 +7,5 @@
 ## Version: 1.0.0
 ## DefaultState: enabled
 
+FollowMe.lua
 OptionsFrame.xml
