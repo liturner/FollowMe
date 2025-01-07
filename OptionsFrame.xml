@@ -1,58 +1,83 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-	<Script file="FollowMe.lua"/>
-	<Frame name="FollowMe">
-		<Scripts>
-			<OnLoad> 
-				FollowMe.OnLoad(self);
-				FollowMeTitle:SetText(FollowMe.i13n.Title)
-				FollowMeDescription:SetText(FollowMe.i13n.Description)
-				FollowMeControlsSubTitle:SetText(FollowMe.i13n.ControlsSubTitle)
-				FollowMeControlsText:SetText(FollowMe.i13n.ControlsText)
-			</OnLoad>
-			<OnEvent> FollowMe.OnEvent(self, event, ...); </OnEvent>
-		</Scripts>
 
-		<Layers>
-			<Layer level="OVERLAY">
-			
-				<!-- Title -->
-				<FontString name="FollowMeTitle" inherits="GameFontNormalLarge">
-					<Anchors>
-						<Anchor point="TOPLEFT" x="16" y="-16"/>
-					</Anchors>
-				</FontString>
+    <Frame name="FollowMe" mixin="FollowMeMixin">
+		<Frames>
+			<Frame parentKey="header">
+				<Size y="50"/>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="TOPRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString parentKey="title" inherits="GameFontHighlightHuge" justifyH="LEFT">
+							<Anchors>
+								<Anchor point="TOPLEFT" x="12" y="-22"/>
+							</Anchors>
+						</FontString>
+						<Texture atlas="Options_HorizontalDivider" useAtlasSize="true">
+							<Anchors>
+								<Anchor point="TOP" y="-50"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Button parentKey="defaultsButton" inherits="UIPanelButtonTemplate" hidden="true">
+						<Size x="96" y="22"/>
+						<Anchors>
+							<Anchor point="TOPRIGHT" x="-36" y="-16"/>
+						</Anchors>
+					</Button>
+				</Frames>
+			</Frame>
+			<Frame parentKey="content">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeKey="$parent.header" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+					<Anchor point="BOTTOMRIGHT" x="-10" y="0"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<!-- About -->
+						<FontString 
+								parentKey="description"
+								inherits="GameFontNormal"
+								justifyH="LEFT"
+								justifyV="TOP"
+								wordwrap="true">
+							<Size y="100"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="16" y="-20"/>
+								<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-20"/>
+							</Anchors>
+						</FontString>
 				
-				<!-- About -->
-				<FontString 
-						name="FollowMeDescription"
-						inherits="SystemFont_Small"
-						justifyH="LEFT"
-						justifyV="TOP"
-						wordwrap="true">
-					<Size y="100"/>
-					<Anchors>
-						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="16" y="-40"/>
-						<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-40"/>
-					</Anchors>
-					
-				</FontString>
-				
-				<!-- Controls SubTitle -->
-				<FontString name="FollowMeControlsSubTitle" inherits="GameFontNormal">
-					<Anchors>
-						<Anchor point="TOPLEFT" x="16" y="-120"/>
-					</Anchors>
-				</FontString>
-				
-				<!-- Controls Text -->
-				<FontString name="FollowMeControlsText" inherits="SystemFont_Small" wordwrap="true" justifyH="LEFT"	justifyV="TOP">
-					<Anchors>
-						<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="16" y="-140"/>
-						<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-140"/>
-					</Anchors>
-				</FontString>
-								
-			</Layer>
-		</Layers>
-	</Frame>
+						<!-- Controls SubTitle -->
+						<FontString parentkey="subTitle" inherits="GameFontNormalLarge">
+							<Color r="1" g="1" b="1"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" x="16" y="-150"/>
+							</Anchors>
+						</FontString>
+						
+						<!-- Controls Text -->
+						<FontString parentKey="controlsText" inherits="GameFontNormal" wordwrap="true" justifyH="LEFT"	justifyV="TOP">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="16" y="-170"/>
+								<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-170"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+            <OnEvent method="OnEvent"/>
+        </Scripts>
+    </Frame>
+
+
+
+
 </Ui>
