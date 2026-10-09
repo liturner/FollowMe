@@ -1,11 +1,12 @@
-## Interface: 11302
+## Interface: 16001
 ## Title: Follow Me!
 ## Title-deDE: Folge Mir!
 ## Notes: Tell someone to follow you using "/followme [PLAYER_NAME]".
 ## Notes-deDE: Sag jemandem, dass er dir folgen soll, indem du "/folgemir [SPIELER_NAME]" benutzt!
-## Author: Luke Turner
-## Version: 1.0.0
+## Author: Luke Ian Turner
+## Version: 1.0.1
 ## DefaultState: enabled
+## IconTexture: 136071
 
 FollowMe.lua
 OptionsFrame.xml

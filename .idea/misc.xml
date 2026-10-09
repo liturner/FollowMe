@@ -3,4 +3,7 @@
   <component name="CMakePythonSetting">
     <option name="pythonIntegrationState" value="YES" />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://www.blizzard.com/wow/ui/" location="$PROJECT_DIR$/../../UI.xsd" />
+  </component>
 </project>

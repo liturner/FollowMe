@@ -1,5 +1,5 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
-
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Frame name="FollowMe" mixin="FollowMeMixin">
 		<Frames>
 			<Frame parentKey="header">
@@ -39,7 +39,7 @@
 				<Layers>
 					<Layer level="OVERLAY">
 						<!-- About -->
-						<FontString 
+						<FontString
 								parentKey="description"
 								inherits="GameFontNormal"
 								justifyH="LEFT"
@@ -51,17 +51,17 @@
 								<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-20"/>
 							</Anchors>
 						</FontString>
-				
+
 						<!-- Controls SubTitle -->
-						<FontString parentkey="subTitle" inherits="GameFontNormalLarge">
+						<FontString parentKey="subTitle" inherits="GameFontNormalLarge">
 							<Color r="1" g="1" b="1"/>
 							<Anchors>
 								<Anchor point="TOPLEFT" x="16" y="-150"/>
 							</Anchors>
 						</FontString>
-						
+
 						<!-- Controls Text -->
-						<FontString parentKey="controlsText" inherits="GameFontNormal" wordwrap="true" justifyH="LEFT"	justifyV="TOP">
+						<FontString parentKey="controlsText" inherits="GameFontNormal" wordwrap="true" justifyH="LEFT" justifyV="TOP">
 							<Anchors>
 								<Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="16" y="-170"/>
 								<Anchor point="TOPRIGHT" relativePoint="TOPRIGHT" x="-16" y="-170"/>
@@ -76,8 +76,4 @@
             <OnEvent method="OnEvent"/>
         </Scripts>
     </Frame>
-
-
-
-
 </Ui>
