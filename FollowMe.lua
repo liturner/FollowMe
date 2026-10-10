@@ -26,7 +26,6 @@ local Locales = {
 	},
 }
 
-
 FollowMeMixin = {}
 function FollowMeMixin:OnLoad()
 
@@ -52,21 +51,16 @@ function FollowMeMixin:OnLoad()
 	
 	C_ChatInfo.RegisterAddonMessagePrefix(FollowMe.Globals.CommsPrefix)
 
-	Menu.ModifyMenu("MENU_UNIT_PLAYER", function(owner, rootDescription, contextData)
-        local loc = contextData.playerLocation
-        if not (loc and loc:IsValid()) then return end
-
-        local guid = loc:GetGUID()
-        if not guid then return end
-        if not IsGUIDInGroup(guid) then return end
-
+    local menuExtenderFunction = function(owner, rootDescription, contextData)
         rootDescription:CreateDivider();
         rootDescription:CreateTitle(FollowMe.i13n.Title);
         rootDescription:CreateButton(FollowMe.i13n.TargetFrameMenuStartFollow, function()
 			C_ChatInfo.SendAddonMessage(FollowMe.Globals.CommsPrefix, UnitName("player"), "WHISPER", contextData.name)
 		end);
-    end);
-	
+	end
+
+	Menu.ModifyMenu("MENU_UNIT_PARTY", menuExtenderFunction);
+	Menu.ModifyMenu("MENU_UNIT_RAID", menuExtenderFunction);
 end
 
 function FollowMeMixin:SlashCommand(msg, editbox)
